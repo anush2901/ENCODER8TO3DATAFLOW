@@ -36,21 +36,41 @@ Figure 02  Encoder 8 * 3
 
 **Procedure**
 
-/* write all the steps invloved */
+1. Define 8 inputs (I0-I7) and 3 outputs (A2-A0).
+2. Assign priority to inputs: I7 (highest) to I0 (lowest).
+3. Generate output equations based on priority encoding:
+    - A2 = I4 + I5 + I6 + I7
+    - A1 = I2 + I3 + I6 + I7
+    - A0 = I1 + I3 + I5 + I7
+4. Implement logic using OR gates and NOT gates (if required).
+5. Verify the encoder's functionality based on input-output relationships.
 
 **PROGRAM**
 
-/* Program for Encoder 8 To 3 in Dataflow Modelling and verify its truth table in quartus using Verilog programming. 
+    module encoder_top(din, a, b, c);
+    input [0:7] din;
+    output a,b,c;
+    assign a=din[4] | din[5] | din[6] | din[7];
+    assign b=din[2] | din[3] | din[6] | din[7];
+    assign c=din[2] | din[4] | din[6] | din[7];
+    endmodule
 
-Developed by: RegisterNumber:
-*/
+Developed by:Anushmalika.R
+RegisterNumber:212224230020
 
 **RTL LOGIC FOR Encoder 8 To 3 in Dataflow Modelling**
 
+![image](https://github.com/user-attachments/assets/72461792-0e4b-4813-a167-830e83322e1c)
+
+
 **TIMING DIGRAMS FOR Encoder 8 To 3 in Dataflow Modelling**
 
-**RESULTS**
+![image](https://github.com/user-attachments/assets/19226627-d849-4fb5-a988-7a9a0261c17a)
 
+
+**RESULTS**
+Thus To implement Encoder 8 To 3 in Dataflow Modelling using verilog and
+validating their functionality using their functional tables is verified.
 
 
 
